@@ -39,7 +39,7 @@ export function Sidebar() {
         }`}
       >
         <div className="flex items-center border-b px-4 lg:h-[60px] lg:px-6">
-          <Link to="/" className="flex items-center gap-2 font-semibold flex-grow text-zinc-200">
+          <Link to="/" className="flex items-center gap-2 font-semibold flex-grow text-zinc-200 ml-6">
             <Building2 className="h-6 w-6 text-zinc-200" />
             <span>ASQI Payroll</span>
           </Link>
