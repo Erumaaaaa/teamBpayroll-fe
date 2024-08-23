@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Home, UserCogIcon, Clock, Clipboard, CalendarCheck, Building2, Menu, X, BriefcaseBusiness, Building, User} from "lucide-react";
+import { Home, UserCogIcon, Clock, Clipboard, CalendarCheck, Building2, Menu, X, BriefcaseBusiness, Building, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
@@ -11,7 +11,7 @@ export function Sidebar() {
   const [user, setUser] = useState({
     name: "Username",
     profilePic: "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png",
-    role: "Admin/User", // Sesuaikan role  dengan login multirole
+    role: "Admin/User", // Sesuaikan role dengan login multirole
   });
 
   useEffect(() => {
@@ -80,7 +80,23 @@ export function Sidebar() {
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1" className="border-none">
                 <AccordionTrigger className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary border-none text-zinc-200">
-                  <UserCogIcon className="h-4 w-4 text-zinc-200" />
+                  <div className="relative flex items-center">
+                    <UserCogIcon className="h-4 w-4 text-zinc-200" />
+                    <span className={`absolute right-0 transition-transform ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                      <svg
+                        className="h-4 w-4 text-zinc-200"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </div>
                   Admin
                   <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full"></Badge>
                 </AccordionTrigger>
