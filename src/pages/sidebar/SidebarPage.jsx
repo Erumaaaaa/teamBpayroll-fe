@@ -29,7 +29,7 @@ export function Sidebar() {
         onClick={() => setIsOpen(!isOpen)}
         className="p-2 md:hidden z-50 absolute top-4 left-4"
       >
-        <Menu className="h-4 w-4 text-zinc-200" />
+        <Menu className="h-4 w-4 text-zinc-960" />
       </button>
 
       {/* Sidebar */}
