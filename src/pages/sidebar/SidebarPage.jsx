@@ -54,21 +54,21 @@ export function Sidebar() {
         </div>
 
         {/* User Profile */}
-        <div className="flex flex-col items-center mt-4">
-          <div className="h-24 w-24 rounded-full overflow-hidden border-2 border-zinc-50">
-            <img 
-              src={user.profilePic} 
-              alt="User Profile"
-              className="object-cover h-full w-full"
-            />
-          </div>
-          <div className="flex flex-col items-center mt-2">
-            <span className="text-zinc-200 text-sm font-semibold">{user.name}</span>
-            <span className="text-zinc-200 text-xs">{user.role}</span>
-          </div>
-        </div>
+      <div className="flex items-center mt-4 ml-4">
+      <div className="h-14 w-14 rounded-full overflow-hidden border-2 border-zinc-50">
+        <img 
+        src={user.profilePic} 
+        alt="User Profile"
+        className="object-cover h-full w-full"
+      />
+      </div>
+      <div className="flex flex-col ml-5">
+        <span className="text-zinc-200 text-sm font-semibold">{user.name}</span>
+        <span className="text-zinc-200 text-xs">{user.role}</span>
+      </div>
+    </div>
 
-        <div className="flex-1">
+        <div className="flex-1 mt-6">
           <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
             <Link
               to="/"
@@ -177,7 +177,7 @@ export function Sidebar() {
       {/* Konten Overlay untuk Mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black opacity-50 md:hidden"
+          className="fixed inset-0 z-30 md:hidden bg-black w-1/2"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
