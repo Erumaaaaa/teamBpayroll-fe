@@ -73,7 +73,7 @@ export function Header() {
                       <DropdownMenuItem onClick={handleAdminClick}>Employee</DropdownMenuItem>
                     </>
                   ) : (
-                    <DropdownMenuItem onClick={handleAdminClick}>Admin (Restricted)</DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleAdminClick}>Admin</DropdownMenuItem>
                   )}
                 </DropdownMenuContent>
               </DropdownMenu>
