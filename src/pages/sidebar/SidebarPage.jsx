@@ -177,7 +177,7 @@ export function Sidebar() {
       {/* Konten Overlay untuk Mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-30 md:hidden bg-black w-1/2"
+          className="fixed inset-0 z-30 md:hidden bg-black w-2/3"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
