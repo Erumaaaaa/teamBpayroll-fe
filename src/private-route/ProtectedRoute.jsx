@@ -3,23 +3,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 
-const AdminRoute = ({ element: Component, ...rest }) => {
+const ProtectedRoute = ({ element: Component, ...rest }) => {
   const storedUser = JSON.parse(localStorage.getItem('currentUser'));
-  const isAdmin = storedUser?.role === 'admin';
 
   if (!storedUser) {
-    return <Navigate to="/login" replace/>
-  }
-
-  if (!isAdmin) {
-    return <Navigate to="/dashboard" replace />;
+    // Jika pengguna belum login, arahkan ke halaman login
+    return <Navigate to="/login" replace />;
   }
 
   return <Component {...rest} />;
 };
 
-AdminRoute.propTypes = {
+ProtectedRoute.propTypes = {
   element: PropTypes.elementType.isRequired,
 };
 
-export default AdminRoute;
+export default ProtectedRoute;
