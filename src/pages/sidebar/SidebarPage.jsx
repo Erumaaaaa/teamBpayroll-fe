@@ -39,7 +39,7 @@ export function Sidebar() {
   };
 
   return (
-    <div className="sidebar bg-white dark:bg-gray-900 text-[#55679C] dark:text-white"> {/* Tambahkan warna teks */}
+    <div className="sidebar bg-white dark:bg-gray-900 text-[#55679C] dark:text-white h-screen flex flex-col border-r border-gray-200 dark:border-gray-700">
       {/* Tombol Toggle Sidebar */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -50,9 +50,9 @@ export function Sidebar() {
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-40 w-64 p-4 transition-transform duration-200 ease-in-out md:relative md:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 w-64 transition-transform duration-200 ease-in-out md:relative md:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        } flex flex-col h-full`}
       >
         <div className="flex items-center border-b px-4 lg:h-[60px] lg:px-6">
           <Link to="/" className="flex items-center gap-2 font-semibold flex-grow text-[#55679C] dark:text-white ml-6">
@@ -69,43 +69,43 @@ export function Sidebar() {
           )}
         </div>
 
-        {/* User Profile */}
-        {user.name ? (
-          <div className="flex items-center mt-4 ml-4">
-            <div className="h-14 w-14 rounded-full overflow-hidden border-2 border-[#55679C] dark:border-white">
-              <img 
-                src={user.profilePic || "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png"} 
-                alt="User Profile"
-                className="object-cover h-full w-full"
-              />
+        <div className="flex-1 mt-6 overflow-y-auto">
+          {/* User Profile */}
+          {user.name ? (
+            <div className="flex items-center mt-4 ml-4 mb-6">
+              <div className="h-14 w-14 rounded-full overflow-hidden border-2 border-[#55679C] dark:border-white">
+                <img 
+                  src={user.profilePic || "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png"} 
+                  alt="User Profile"
+                  className="object-cover h-full w-full"
+                />
+              </div>
+              <div className="flex flex-col ml-5">
+                <span className="text-[#55679C] dark:text-white text-sm font-semibold">{user.name}</span>
+                <span className="text-[#55679C] dark:text-white text-xs">{user.role}</span>
+              </div>
             </div>
-            <div className="flex flex-col ml-5">
-              <span className="text-[#55679C] dark:text-white text-sm font-semibold">{user.name}</span>
-              <span className="text-[#55679C] dark:text-white text-xs">{user.role}</span>
+          ) : (
+            <div className="flex items-center mt-4 ml-4 mb-6">
+              <div className="h-14 w-14 rounded-full overflow-hidden border-2 border-[#55679C] dark:border-white">
+                <img 
+                  src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png"
+                  alt="Default Profile"
+                  className="object-cover h-full w-full"
+                />
+              </div>
+              <div className="flex flex-col ml-5">
+                <span className="text-[#55679C] dark:text-white text-sm font-semibold">Anda belum login!</span>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className="flex items-center mt-4 ml-4">
-            <div className="h-14 w-14 rounded-full overflow-hidden border-2 border-[#55679C] dark:border-white">
-              <img 
-                src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png"
-                alt="Default Profile"
-                className="object-cover h-full w-full"
-              />
-            </div>
-            <div className="flex flex-col ml-5">
-              <span className="text-[#55679C] dark:text-white text-sm font-semibold">Anda belum login!</span>
-            </div>
-          </div>
-        )}
+          )}
 
-        <div className="flex-1 mt-6">
-          <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+          <nav className="grid items-start px-2 text-sm font-medium lg:px-4 pb-6">
             <Link
               to="/dashboard"
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-[#55679C] dark:text-white transition-all hover:text-primary active:bg-[#55679C] active:text-white"
             >
-              <Home className="h-4 w-4 text-[#55679C] dark:text-white" />
+              <Home color="white" className="h-4 w-4 text-[#55679C] dark:text-white" />
               Dashboard
             </Link>
             {user.role === "admin" && (
@@ -200,7 +200,7 @@ export function Sidebar() {
               to="/attendance"
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-[#55679C] dark:text-white transition-all hover:text-primary active:bg-[#55679C] active:text-white"
             >
-              <CalendarCheck className="h-4 w-4 text-[#55679C] dark:text-white" />
+              <CalendarCheck className="h-4 w-4 active:text-white text-[#55679C] dark:text-white" />
               Attendance
             </Link>
             {user.name ? (
@@ -228,7 +228,7 @@ export function Sidebar() {
       {/* Konten Overlay untuk Mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-30 md:hidden bg-black w-2/3"
+          className="fixed inset-0 z-30 md:hidden bg-black w-[62%]"
           onClick={() => setIsOpen(false)}
         ></div>
       )}

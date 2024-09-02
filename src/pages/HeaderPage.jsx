@@ -52,16 +52,7 @@ export function Header() {
   return (
     <>
       {/* Mobile Sidebar Toggle Button */}
-      <button
-        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        className="p-2 md:hidden absolute top-4 left-4 z-50 transition-transform"
-      >
-        {isSidebarOpen ? (
-          <X className="h-6 w-6 text-zinc-200" />
-        ) : (
-          <Menu className="h-6 w-6 text-zinc-200" />
-        )}
-      </button>
+      
 
       {/* Sidebar Component */}
       {isSidebarOpen && <Sidebar />}
