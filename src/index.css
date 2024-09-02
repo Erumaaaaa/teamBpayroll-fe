@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Tambahkan CSS khusus di sini */
+html.light {
+    background-color: #55679C;
+    color: #55679C;
+}
+
+
+html.dark {
+    background-color: #55679C;
+    color: #fff; /* Ubah warna teks menjadi putih atau sesuai kebutuhan */
+  }

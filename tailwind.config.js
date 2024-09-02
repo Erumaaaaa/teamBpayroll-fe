@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class', // Aktifkan mode gelap dengan menggunakan kelas
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
@@ -15,8 +16,8 @@ module.exports = {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        "accordion-down": "accordion-down 0.5s ease-out",
+        "accordion-up": "accordion-up 0.5s ease-out",
       },
     },
   },
