@@ -15,7 +15,8 @@ import { Label } from "@/components/ui/label";
 export function RegisterForm() {
   const navigate = useNavigate();
 
-  const roleCategory = [ 
+  const roleCategory = [
+    { value: 'super-admin', label: 'Super Admin' }, 
     { value: 'admin', label: 'Admin' },
     { value: 'user', label: 'User' },
   ];

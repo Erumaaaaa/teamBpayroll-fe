@@ -2,20 +2,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './private-route/ProtectedRoute';
+import SuperAdminRoute from './private-route/SuperAdminRoute';
 import AdminRoute from './private-route/AdminRoute';
 import { RegisterForm } from './components/RegisterForm';
 import { LoginForm } from './components/LoginForm';
 import DashboardPage from './pages/DashboardPage';
-import Position from './pages/PositionPage';
-import Departments from './pages/DepartmentPage';
-import Employees from './pages/EmployeePage';
-import Attendance from './pages/AttendancePage';
-import Schedule from './pages/SchedulePage';
-import LeaveRequest from './pages/LeaveRequest';
-import CreateDepartment from './pages/Admin/CreateDepartmentPage';
-import CreatePosition from './pages/Admin/CreatePositionPage';
-import CreateEmployee from './pages/Admin/CreateEmployeePage';
-import Payroll from './pages/Admin/PayrollPage';
+import CrudKaryawan from './Admin/crud-karyawan';
+import CrudTransaksi from './Admin/crud-transaksi';
+import IncomeExpense from './Admin/income-expense';
+import BukuBesar from './Super-Admin/buku-besar';
+import AttendanceHistory from './User/Attendance/AttendanceHistory';
+import ProjectBonus from './User/ProjectBonusReport';
+import MonthlySalary from './User/ReportMonthlySalary';
 import { ThemeProvider } from './components/ThemeProvider';
 
 function App() {
@@ -27,25 +25,38 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoute element={DashboardPage} />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/position" element={<ProtectedRoute element={Position} />} />
-          <Route path="/departments" element={<ProtectedRoute element={Departments} />} />
-          <Route path="/employee" element={<ProtectedRoute element={Employees} />} />
-          <Route path="/attendance" element={<ProtectedRoute element={Attendance} />} />
-          <Route path="/schedule" element={<ProtectedRoute element={Schedule} />} />
-          <Route path="/leave-request" element={<ProtectedRoute element={LeaveRequest} />} />
+          <Route path="/attendance" element={<ProtectedRoute element={AttendanceHistory} />} />
+          <Route path="/project-bonus" element={<ProtectedRoute element={ProjectBonus} />} />
+          <Route path="/monthly-salary" element={<ProtectedRoute element={MonthlySalary} />} />
           <Route
-            path="/admin/create-departments"
-            element={<AdminRoute element={CreateDepartment} />}
+            path="/admin/crud-karyawan"
+            element={<AdminRoute element={CrudKaryawan} />}
           />
           <Route
-            path="/admin/create-position"
-            element={<AdminRoute element={CreatePosition} />}
+            path="/admin/crud-transaksi"
+            element={<AdminRoute element={CrudTransaksi} />}
           />
           <Route
-            path="/admin/create-employee"
-            element={<AdminRoute element={CreateEmployee} />}
+            path="/admin/income-expense"
+            element={<AdminRoute element={IncomeExpense} />}
           />
-          <Route path="/admin/payroll" element={<AdminRoute element={Payroll} />} />
+
+          <Route
+            path="/super-admin/crud-karyawan"
+            element={<SuperAdminRoute element={CrudKaryawan} />}
+          />
+          <Route
+            path="/super-admin/crud-transaksi"
+            element={<SuperAdminRoute element={CrudTransaksi} />}
+          />
+          <Route
+            path="/super-admin/income-expense"
+            element={<SuperAdminRoute element={IncomeExpense} />}
+          />
+          <Route
+            path="/super-admin/buku-besar"
+            element={<SuperAdminRoute element={BukuBesar} />}
+          />
         </Routes>
       </Router>
     </ThemeProvider>

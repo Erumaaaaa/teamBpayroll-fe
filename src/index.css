@@ -3,13 +3,16 @@
 @tailwind utilities;
 
 /* Tambahkan CSS khusus di sini */
+html.system {
+    background-color: rgb(255, 255, 255);
+    color: #000; /* Warna teks untuk tema sistem */
+}
 html.light {
-    background-color: #55679C;
+    background-color: #ffffff;
     color: #55679C;
 }
 
-
 html.dark {
     background-color: #55679C;
-    color: #fff; /* Ubah warna teks menjadi putih atau sesuai kebutuhan */
-  }
+    color: #fff;
+}

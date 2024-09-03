@@ -20,8 +20,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Toast } from "@/components/ui/toast"; // Assuming you have a Toast component for notifications
-import { Sidebar } from "./sidebar/SidebarPage";
-import { ModeToggle } from "../components/mode-toggle"; // Import ModeToggle
+import { ModeToggle } from "./mode-toggle"; // Import ModeToggle
+import { Sidebar } from "./Sidebar";
 
 export function Header() {
   const [user, setUser] = useState({ name: "", role: "" });
@@ -35,10 +35,18 @@ export function Header() {
     }
   }, []);
 
+  const handleSuperAdminClick = (event) => {
+    if (user.role !== "super-admin") {
+      event.preventDefault();
+      Toast.show("Acces Denied: Admin privilages required");
+      navigate("/");
+    }
+  }
+
   const handleAdminClick = (event) => {
     if (user.role !== "admin") {
       event.preventDefault();
-      Toast.show("Access Denied: Admin privileges required"); // Adjust to your notification library's API
+      Toast.show("Access Denied: Admin privilages required"); // Adjust to your notification library's API
       navigate("/"); // Redirect to dashboard or another page
     }
   };
